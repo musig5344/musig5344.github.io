@@ -1,0 +1,356 @@
+/* location.css - 입지 분석 섹션 스타일 */
+
+/* 입지 섹션 기본 스타일 */
+.section-location {
+    position: relative;
+    background-color: var(--bg-off-white);
+    overflow: hidden;
+  }
+  
+  /* 배경 패턴 (고급스러운 느낌 강화) */
+  .section-location:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  
+  /* 지도 및 위치 시각화 */
+  .location-map {
+    margin-bottom: var(--space-16);
+  }
+  
+  .location-map h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 접근성 포인트 그리드 */
+  .access-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+  
+  /* 접근성 아이템 */
+  .access-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    background-color: var(--bg-white);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+  }
+  
+  .access-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* 아이콘 스타일 */
+  .access-icon {
+    font-size: var(--text-3xl);
+    color: var(--primary-medium);
+    flex-shrink: 0;
+  }
+  
+  /* 접근성 세부 정보 */
+  .access-details h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+    color: var(--primary-dark);
+  }
+  
+  .access-details p {
+    color: var(--primary-light);
+    font-size: var(--text-sm);
+    font-weight: var(--font-thin);
+    margin: 0;
+  }
+  
+  /* 부동산 가치 성장 차트 */
+  .value-growth {
+    margin-bottom: var(--space-16);
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .value-growth h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 차트 플레이스홀더 */
+  .growth-chart {
+    height: 300px;
+    background-color: var(--bg-off-white);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+  
+  /* 차트 노트 */
+  .growth-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--primary-medium);
+  }
+  
+  /* 사계절 갤러리 */
+  .seasons-gallery {
+    margin-bottom: var(--space-16);
+  }
+  
+  .seasons-gallery h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 갤러리 그리드 */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* 갤러리 아이템 */
+  .gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    aspect-ratio: 3/2;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* 계절 이미지 */
+  .season-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery-item:hover .season-image {
+    transform: scale(1.05);
+  }
+  
+  /* 갤러리 캡션 */
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: var(--bg-white);
+    padding: var(--space-4) var(--space-3) var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+  }
+  
+  /* 입지 특징 아이템 */
+  .location-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+  }
+  
+  /* 특징 카드 */
+  .feature-card {
+    text-align: center;
+    padding: var(--space-6);
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 카드 배경 효과 */
+  .feature-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-medium), var(--primary-light));
+    opacity: 0.1;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .feature-card:hover:before {
+    opacity: 1;
+  }
+  
+  /* 특징 아이콘 */
+  .feature-icon {
+    font-size: var(--text-4xl);
+    color: var(--primary-medium);
+    margin-bottom: var(--space-4);
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* 아이콘 배경 효과 */
+  .feature-icon:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(212,175,55,0.1);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all var(--transition-normal);
+  }
+  
+  .feature-card:hover .feature-icon:before {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(212,175,55,0.2);
+  }
+  
+  /* 특징 제목 */
+  .feature-title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+    color: var(--primary-dark);
+    font-weight: var(--font-medium);
+  }
+  
+  /* 특징 설명 */
+  .feature-description {
+    color: var(--primary-light);
+    font-weight: var(--font-thin);
+    line-height: var(--leading-relaxed);
+  }
+  
+  /* 선형 도표 스타일 */
+  .line-chart {
+    width: 100%;
+    position: relative;
+  }
+  
+  .chart-grid {
+    display: flex;
+    height: 200px;
+    position: relative;
+    background: linear-gradient(to bottom, transparent, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 40%, transparent 40%, transparent 60%, rgba(0,0,0,0.03) 60%, rgba(0,0,0,0.03) 80%, transparent 80%, transparent 100%);
+  }
+  
+  .y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 10px;
+    width: 50px;
+  }
+  
+  .y-label {
+    font-size: 11px;
+    color: var(--primary-light);
+  }
+  
+  .chart-area {
+    flex: 1;
+    position: relative;
+  }
+  
+  .x-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .x-label {
+    font-size: 11px;
+    color: var(--primary-light);
+  }
+  
+  .chart-annotation {
+    font-size: 10px;
+    fill: var(--primary-light);
+  }
+  
+  /* 성장선 애니메이션 */
+  .growth-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+  }
+  
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  /* 예측선 스타일 */
+  .prediction-line {
+    stroke-dasharray: 5, 5;
+    stroke-opacity: 0.8;
+    animation: drawLine 1.5s ease-out forwards;
+    animation-delay: 1s;
+  }
+  
+  /* 모바일 반응형 스타일 */
+  @media (max-width: 992px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .location-features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .location-features {
+      grid-template-columns: 1fr;
+    }
+    
+    .access-points {
+      grid-template-columns: 1fr;
+    }
+    
+    .value-growth {
+      padding: var(--space-4);
+    }
+  }

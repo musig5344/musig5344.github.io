@@ -1,0 +1,202 @@
+/* buttons.css - 버튼 스타일 */
+
+/* 기본 버튼 스타일 */
+.btn {
+    display: inline-block;
+    padding: var(--space-4) var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal) var(--ease-out);
+    border: none;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    z-index: var(--z-normal);
+  }
+  
+  /* 버튼에 반짝이는 효과 추가 (심리적 주목도 향상) */
+  .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: var(--transition-slow);
+    z-index: -1;
+  }
+  
+  .btn:hover:before {
+    left: 100%;
+  }
+  
+  /* 반짝임 효과를 위한 애니메이션 */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      opacity: 0.5;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+  
+  /* 주 버튼 스타일 - 네이비 색상 */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary-medium), var(--primary-dark));
+    color: var(--bg-white);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-darkest));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--bg-white);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* 골드 버튼 스타일 - 주요 CTA */
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    color: var(--bg-white);
+    position: relative;
+    z-index: var(--z-normal);
+  }
+  
+  .btn-gold:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark), var(--gold-dark));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--bg-white);
+  }
+  
+  .btn-gold:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* 아웃라인 버튼 스타일 */
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--gold);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-outline:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* 큰 버튼 스타일 */
+  .btn-lg {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-base);
+  }
+  
+  /* 작은 버튼 스타일 */
+  .btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+  }
+  
+  /* 풀 너비 버튼 */
+  .btn-full {
+    width: 100%;
+    display: block;
+  }
+  
+  /* 투자자 전환에 중요한 CTA 버튼 스타일 */
+  .btn-cta {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    color: var(--bg-white);
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-base);
+    letter-spacing: 1.5px;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+    transform-style: preserve-3d;
+    animation: pulse 2s infinite;
+  }
+  
+  /* 주의를 끄는 펄스 애니메이션 (긴급성 강조) */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 10px 25px rgba(212,175,55,0.6);
+      transform: scale(1.02);
+    }
+    100% {
+      box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+      transform: scale(1);
+    }
+  }
+  
+  .btn-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(212,175,55,0.5);
+    animation: none;
+  }
+  
+  .btn-cta:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+  }
+  
+  /* 인증 후 양식 제출 버튼 등 조금 더 조용한 스타일의 CTA */
+  .form-submit {
+    padding: var(--space-4) var(--space-10);
+    min-width: 250px;
+    font-weight: var(--font-medium);
+    animation: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .form-submit:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  /* 버튼 사이 간격 유틸리티 */
+  .btn + .btn {
+    margin-left: var(--space-4);
+  }
+  
+  /* 모바일 화면에서 버튼 간격 및 크기 조정 */
+  @media (max-width: 768px) {
+    .btn {
+      padding: var(--space-3) var(--space-6);
+    }
+    
+    .btn-lg, .btn-cta {
+      padding: var(--space-4) var(--space-8);
+    }
+    
+    .btn + .btn {
+      margin-left: var(--space-3);
+      margin-top: var(--space-3);
+    }
+  }

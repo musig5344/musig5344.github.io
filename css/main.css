@@ -1,0 +1,238 @@
+/* main.css - 메인 스타일시트 */
+
+/* 필수 스타일 파일 임포트 */
+@import 'variables.css';
+@import '../sections/header.css';
+@import '../sections/investment.css';
+@import '../sections/location.css';
+@import '../sections/project.css';
+@import '../sections/trust.css';
+@import '../sections/testimonials.css';
+@import '../sections/faq.css';
+@import '../sections/contact.css';
+@import 'buttons.css';
+@import 'cards.css';
+@import 'forms.css';
+@import 'charts.css';
+
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  color: var(--charcoal);
+  background-color: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center; /* 기본 텍스트 중앙 정렬 */
+  --scroll-offset: 0;
+  transition: --scroll-offset 0.5s var(--ease-out-expo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+  font-weight: var(--font-semibold);
+  color: var(--primary-darkest);
+  text-align: center; /* 모든 제목 중앙 정렬 */
+}
+
+p {
+  margin-bottom: var(--space-4);
+  text-align: center; /* 모든 문단 중앙 정렬 */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* 이미지 블록 처리 */
+  margin: 0 auto; /* 이미지 중앙 정렬 */
+}
+
+a {
+  color: var(--primary-medium);
+  text-decoration: none;
+  transition: color var(--transition-normal) var(--ease-in-out);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-8);
+}
+
+/* 중앙 정렬용 컨테이너 클래스 강화 */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  position: relative;
+}
+
+/* 섹션 헤더 중앙 정렬 강화 */
+.section-header {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: var(--space-12);
+  max-width: 900px;
+}
+
+.section-subtitle {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: var(--space-2);
+  display: block;
+  text-align: center !important;
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+  color: var(--primary-darkest);
+  text-align: center !important;
+}
+
+.section-description {
+  font-size: var(--text-lg);
+  color: var(--primary-light);
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-weight: var(--font-thin);
+  text-align: center !important;
+}
+
+.title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-4) auto;
+}
+
+.title-line {
+  height: 1px;
+  width: 60px;
+  background-color: var(--gold);
+}
+
+.title-diamond {
+  width: 10px;
+  height: 10px;
+  background-color: var(--gold);
+  margin: 0 var(--space-4);
+  transform: rotate(45deg);
+}
+
+.gold-text {
+  background: linear-gradient(to right, var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+section {
+  padding: var(--space-20) 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center !important;
+  transition: transform 0.5s var(--ease-out-expo);
+  transform: translateY(var(--scroll-offset, 0));
+}
+
+section:nth-child(even) {
+  background-color: var(--bg-white);
+}
+
+.accent {
+  color: var(--gold);
+  font-weight: var(--font-medium);
+}
+
+.highlight {
+  font-size: var(--text-xl);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+/* 중앙 정렬 유틸리티 클래스 */
+.text-center {
+  text-align: center !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 카드 중앙 정렬 */
+.cards-container, 
+.investment-cards,
+.features-grid,
+.gallery-grid,
+.process-steps,
+.partners-grid,
+.testimonial-carousel,
+.facilities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-6);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 992px) {
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+  
+  section {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* 스크롤 관련 클래스 */
+.scrolling-down {
+  --scroll-offset: -50px;
+}

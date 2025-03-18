@@ -1,0 +1,381 @@
+/* trust.css - 투자 안전성/신뢰도 섹션 스타일 */
+
+/* 신뢰성 섹션 기본 스타일 */
+.section-trust {
+    background-color: var(--bg-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 배경 패턴 (고급스러운 느낌 강화) */
+  .section-trust:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* 5중 투자 보호 시스템 */
+  .safety-features {
+    margin-bottom: var(--space-16);
+  }
+  
+  .safety-features h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  /* 안전장치 리스트 */
+  .safety-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  /* 안전장치 아이템 */
+  .safety-item {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 아이템 배경 효과 (미묘한 그라데이션) */
+  .safety-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-medium), var(--primary-light));
+    opacity: 0.1;
+  }
+  
+  /* 호버 효과 */
+  .safety-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .safety-item:hover:before {
+    opacity: 1;
+  }
+  
+  /* 아이콘 스타일 */
+  .safety-icon {
+    font-size: var(--text-4xl);
+    color: var(--primary-medium);
+    opacity: 0.9;
+    flex-shrink: 0;
+    margin-top: var(--space-1);
+  }
+  
+  /* 아이템 콘텐츠 */
+  .safety-content {
+    flex: 1;
+  }
+  
+  .safety-content h4 {
+    color: var(--primary-dark);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-medium);
+  }
+  
+  .safety-content p {
+    color: var(--primary-light);
+    font-size: var(--text-base);
+    font-weight: var(--font-thin);
+    margin-bottom: 0;
+  }
+  
+  /* 투자 프로세스 섹션 */
+  .investment-process {
+    margin-bottom: var(--space-16);
+  }
+  
+  .investment-process h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  /* 프로세스 단계 컨테이너 */
+  .process-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--space-12) 0;
+    position: relative;
+  }
+  
+  /* 단계 연결선 */
+  .process-connector {
+    position: absolute;
+    top: 35px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    z-index: 0;
+  }
+  
+  /* 개별 프로세스 단계 */
+  .process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 단계 번호 원형 */
+  .step-number {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
+    margin: 0 auto var(--space-4);
+    position: relative;
+    box-shadow: 0 10px 20px rgba(212,175,55,0.2);
+    
+    /* 단계별 나타나는 애니메이션 */
+    opacity: 0;
+    transform: scale(0.8);
+    animation-name: scaleIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.5, 1.6, 0.4, 1);
+  }
+  
+  /* 단계별 애니메이션 딜레이 */
+  .process-step:nth-child(2) .step-number {
+    animation-delay: 0.2s;
+  }
+  
+  .process-step:nth-child(3) .step-number {
+    animation-delay: 0.4s;
+  }
+  
+  .process-step:nth-child(4) .step-number {
+    animation-delay: 0.6s;
+  }
+  
+  .process-step:nth-child(5) .step-number {
+    animation-delay: 0.8s;
+  }
+  
+  /* 원형 외곽선 효과 */
+  .step-number:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,175,55,0.3);
+  }
+  
+  /* 단계 제목 */
+  .step-title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+    color: var(--primary-dark);
+    font-weight: var(--font-medium);
+  }
+  
+  /* 단계 설명 */
+  .step-description {
+    color: var(--primary-light);
+    font-size: var(--text-sm);
+    font-weight: var(--font-thin);
+  }
+  
+  /* 파트너십 섹션 */
+  .partners-section {
+    margin-bottom: var(--space-16);
+  }
+  
+  .partners-section h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  /* 파트너사 로고 그리드 */
+  .partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    margin: var(--space-8) 0;
+  }
+  
+  /* 파트너사 로고 아이템 */
+  .partner-logo {
+    flex: 0 0 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    
+    /* 로고 이미지용 필터 - 흑백에서 컬러로 변경 효과 */
+    filter: grayscale(100%) opacity(0.7);
+  }
+  
+  .partner-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    filter: grayscale(0%) opacity(1);
+  }
+  
+  .partner-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+  }
+  
+  /* 전문가 평가 섹션 */
+  .expert-quotes {
+    margin-bottom: var(--space-8);
+  }
+  
+  .expert-quotes h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  /* 전문가 인용구 */
+  .expert-quote {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding: var(--space-8) var(--space-12);
+  }
+  
+  /* 인용 부호 효과 */
+  .expert-quote:before {
+    content: '"';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(212,175,55,0.1);
+    font-family: Georgia, serif;
+  }
+  
+  .expert-quote:after {
+    content: '"';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(212,175,55,0.1);
+    font-family: Georgia, serif;
+  }
+  
+  /* 인용문 텍스트 */
+  .expert-quote blockquote {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    color: var(--primary-dark);
+    font-weight: var(--font-thin);
+    font-style: italic;
+    margin-bottom: var(--space-6);
+  }
+  
+  /* 인용 출처 */
+  .expert-quote cite {
+    font-size: var(--text-sm);
+    color: var(--gold);
+    font-style: normal;
+    font-weight: var(--font-medium);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* 애니메이션 */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 992px) {
+    .safety-list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .process-connector {
+      display: none;
+    }
+    
+    .expert-quote {
+      padding: var(--space-6) var(--space-4);
+    }
+    
+    .expert-quote blockquote {
+      font-size: var(--text-lg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .process-steps {
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    
+    .safety-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .expert-quote:before,
+    .expert-quote:after {
+      font-size: 80px;
+    }
+  }

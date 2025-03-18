@@ -1,0 +1,559 @@
+/* charts.css - 차트 및 데이터 시각화 스타일 */
+
+/* 수익률 비교 차트 컨테이너 */
+.comparison-container {
+    max-width: 900px;
+    margin: var(--space-12) auto;
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+  
+  .chart-title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+  }
+  
+  .chart-subtitle {
+    text-align: center;
+    color: var(--primary-light);
+    font-size: var(--text-lg);
+    font-weight: var(--font-thin);
+    margin-bottom: var(--space-8);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* 비교 차트 스타일 */
+  .comparison-chart {
+    width: 100%;
+    margin-top: var(--space-6);
+  }
+  
+  .chart-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-5);
+  }
+  
+  .chart-label {
+    flex: 0 0 200px;
+    font-weight: var(--font-normal);
+    font-size: var(--text-base);
+    color: var(--primary-dark);
+    text-align: right;
+    padding-right: var(--space-4);
+  }
+  
+  .chart-track {
+    flex: 1;
+    height: 35px;
+    background-color: rgba(0,0,0,0.03);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  }
+  
+  /* 차트 채우기 */
+  .chart-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-light), var(--primary-medium));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: var(--space-4);
+    color: var(--bg-white);
+    font-weight: var(--font-medium);
+    font-size: var(--text-sm);
+    width: 0%; /* 초기 너비, 애니메이션에서 변경됨 */
+    transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    overflow: visible; /* 텍스트가 밖으로 나갈 수 있게 */
+  }
+  
+  /* 퍼센트가 낮을 때 텍스트 위치 조정 */
+  .chart-fill[data-percentage="1"]:after,
+  .chart-fill[data-percentage="3"]:after,
+  .chart-fill[data-percentage="3.5"]:after {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    right: -35px;
+    color: var(--primary-dark);
+  }
+  
+  /* 차트 금색 강조 (차별화 포인트) */
+  .chart-fill.gold {
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-dark));
+    color: var(--bg-white);
+  }
+  
+  @keyframes fillWidth {
+    from {
+      width: 0;
+    }
+    to {
+      width: var(--fill-width, 100%);
+    }
+  }
+  
+  /* 차트 설명 노트 */
+  .chart-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--primary-medium);
+    margin-top: var(--space-6);
+  }
+  
+  .gold-text {
+    color: var(--gold);
+    font-weight: var(--font-medium);
+    display: inline-block;
+  }
+  
+  /* 누적 수익 시뮬레이션 섹션 */
+  .cumulative-returns {
+    margin: var(--space-16) auto;
+    text-align: center;
+    max-width: 1000px;
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .cumulative-returns h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 투자 금액 탭 */
+  .investment-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+  }
+  
+  .tab-btn {
+    padding: var(--space-3) var(--space-5);
+    background-color: var(--bg-off-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .tab-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--bg-white);
+  }
+  
+  .tab-btn.active {
+    background-color: var(--primary-medium);
+    color: var(--bg-white);
+  }
+  
+  /* 차트 컨테이너 */
+  .cumulative-chart-container {
+    display: flex;
+    height: 300px;
+    margin: var(--space-8) auto;
+    max-width: 900px;
+  }
+  
+  /* Y축 레이블 */
+  .y-axis-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 120px;
+    padding-right: var(--space-3);
+    text-align: right;
+  }
+  
+  .y-label {
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+  }
+  
+  /* 차트 내용 */
+  .chart-content {
+    flex: 1;
+    border-left: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 20%,
+      rgba(0,0,0,0.03) 20%,
+      rgba(0,0,0,0.03) 40%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0,0,0,0.03) 60%,
+      rgba(0,0,0,0.03) 80%,
+      transparent 80%,
+      transparent 100%
+    );
+  }
+  
+  /* 막대 컨테이너 */
+  .bars-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+    padding: 0 var(--space-4);
+  }
+  
+  /* 연차별 막대 */
+  .year-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40px;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* 원금 부분 */
+  .principal-segment {
+    width: 100%;
+    background-color: var(--primary-dark);
+    margin-bottom: 0;
+    transition: height 1s ease;
+  }
+  
+  /* 이자 부분 */
+  .interest-segment {
+    width: 100%;
+    background-color: var(--gold);
+    margin-bottom: 0;
+    transition: height 1s ease;
+  }
+  
+  /* 연도 레이블 */
+  .year-label {
+    position: absolute;
+    bottom: -25px;
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* 범례 */
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin: var(--space-8) 0 var(--space-4);
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+  }
+  
+  .legend-color.principal {
+    background-color: var(--primary-dark);
+  }
+  
+  .legend-color.interest {
+    background-color: var(--gold);
+  }
+  
+  .legend-text {
+    font-size: var(--text-sm);
+    color: var(--charcoal);
+  }
+  
+  /* 총 수익 정보 */
+  .total-returns {
+    background-color: var(--bg-off-white);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .total-returns p {
+    margin: var(--space-1) 0;
+    font-size: var(--text-base);
+    text-align: center;
+  }
+  
+  .total-returns .accent {
+    color: var(--gold);
+    font-weight: var(--font-bold);
+  }
+  
+  /* 성장 추이 라인 차트 */
+  .value-growth {
+    margin-bottom: var(--space-16);
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .value-growth h3 {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+  
+  .line-chart {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .chart-grid {
+    display: flex;
+    height: 200px;
+    position: relative;
+    margin-bottom: var(--space-6);
+  }
+  
+  .y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    text-align: right;
+    padding-right: var(--space-2);
+  }
+  
+  .chart-area {
+    flex: 1;
+    position: relative;
+  }
+  
+  .chart-svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .growth-line, .prediction-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+  }
+  
+  .prediction-line {
+    animation-delay: 1s;
+  }
+  
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .chart-annotation {
+    font-size: 10px;
+    fill: var(--primary-light);
+  }
+  
+  .x-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-4);
+  }
+  
+  .x-label {
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+    text-align: center;
+    width: 14.28%; /* 100% / 7 for 7 years */
+  }
+  
+  .growth-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--primary-medium);
+    margin-top: var(--space-4);
+  }
+  
+  /* 투자 지연 시 기회비용 표시 */
+  .opportunity-cost {
+    background-color: var(--primary-darkest);
+    color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    margin: var(--space-12) auto;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  
+  .opportunity-cost:before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+    transform: rotate(-30deg);
+    pointer-events: none;
+  }
+  
+  .opportunity-cost h3 {
+    color: var(--bg-white);
+    margin-bottom: var(--space-4);
+  }
+  
+  .cost-meter {
+    background-color: rgba(255,255,255,0.1);
+    height: 40px;
+    border-radius: var(--radius-md);
+    margin-top: var(--space-4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .meter-fill {
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-dark));
+    height: 100%;
+    width: 0;
+    border-radius: var(--radius-md);
+    animation: fillMeter 1.5s ease-out forwards;
+  }
+  
+  .meter-fill.animate {
+    animation: fillMeter 1.5s ease-out forwards;
+  }
+  
+  @keyframes fillMeter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .meter-value {
+    position: absolute;
+    top: 50%;
+    right: var(--space-4);
+    transform: translateY(-50%);
+    color: var(--bg-white);
+    font-weight: var(--font-medium);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    z-index: var(--z-normal);
+  }
+  
+  /* 차트 플레이스홀더 */
+  .chart-placeholder {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-off-white);
+    border-radius: var(--radius-md);
+    color: var(--primary-light);
+    font-style: italic;
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 992px) {
+    .chart-label {
+      flex: 0 0 150px;
+    }
+    
+    .cumulative-chart-container {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .chart-label {
+      flex: 0 0 120px;
+      font-size: var(--text-sm);
+    }
+    
+    .year-bar {
+      width: 30px;
+    }
+    
+    .investment-tabs {
+      flex-wrap: wrap;
+    }
+    
+    .cumulative-chart-container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .y-axis-labels {
+      width: 100%;
+      flex-direction: row;
+      padding-right: 0;
+      padding-bottom: var(--space-2);
+      text-align: center;
+    }
+    
+    .chart-content {
+      border-left: none;
+      border-top: 1px solid var(--gray-light);
+      min-height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chart-label {
+      flex: 0 0 100px;
+      font-size: var(--text-xs);
+    }
+    
+    .chart-fill {
+      font-size: var(--text-xs);
+    }
+    
+    .opportunity-cost {
+      padding: var(--space-4);
+    }
+    
+    .chart-title {
+      font-size: var(--text-xl);
+    }
+    
+    .chart-subtitle {
+      font-size: var(--text-sm);
+    }
+    
+    .year-bar {
+      width: 20px;
+    }
+    
+    .year-label {
+      font-size: var(--text-xxs);
+      transform: rotate(-45deg);
+      bottom: -20px;
+    }
+    
+    .comparison-container, 
+    .cumulative-returns {
+      padding: var(--space-4);
+    }
+  }

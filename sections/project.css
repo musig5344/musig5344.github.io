@@ -1,0 +1,474 @@
+/* project.css - 프로젝트 개요 섹션 스타일 */
+
+/* 프로젝트 섹션 기본 스타일 */
+.section-project {
+    background-color: var(--bg-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 배경 패턴 (고급스러운 느낌 강화) */
+  .section-project:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  
+  /* 프로젝트 시각화 컨테이너 */
+  .project-visual {
+    margin-bottom: var(--space-16);
+    text-align: center;
+    position: relative;
+  }
+  
+  /* 조감도 이미지 */
+  .project-visual img {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-slow);
+  }
+  
+  /* 시각화 이미지에 호버 확대 효과 */
+  .project-visual:hover img {
+    transform: scale(1.02);
+  }
+  
+  /* 이미지 캡션/오버레이 */
+  .project-visual-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10,25,51,0.8);
+    color: var(--bg-white);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    z-index: 1;
+    box-shadow: var(--shadow-lg);
+    max-width: 80%;
+  }
+  
+  /* 벤치마크 비교 섹션 */
+  .benchmark-comparison {
+    margin-bottom: var(--space-16);
+    padding: var(--space-6);
+    background-color: var(--bg-off-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .benchmark-comparison h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 벤치마크 이미지 컨테이너 */
+  .benchmark-image-container {
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* 벤치마크 설명 */
+  .benchmark-description {
+    text-align: center;
+    color: var(--primary-light);
+    font-size: var(--text-lg);
+    font-weight: var(--font-thin);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* 벤치마크 비교 포인트 리스트 */
+  .benchmark-points {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+  }
+  
+  .benchmark-point {
+    flex: 0 1 200px;
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+  
+  .benchmark-point-title {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-medium);
+    margin-bottom: var(--space-1);
+  }
+  
+  .benchmark-point-value {
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+  }
+  
+  /* 시설 쇼케이스 섹션 */
+  .facilities-showcase {
+    margin-bottom: var(--space-8);
+  }
+  
+  .facilities-showcase h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  /* 시설 그리드 */
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+  
+  /* 시설 카드 */
+  .facility-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .facility-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* 시설 이미지 컨테이너 */
+  .facility-card .image-placeholder {
+    height: 200px;
+  }
+  
+  /* 시설 이미지 */
+  .facility-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all var(--transition-normal);
+  }
+  
+  .facility-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* 시설 정보 */
+  .facility-card h4 {
+    font-size: var(--text-lg);
+    margin: var(--space-4) var(--space-4) var(--space-2);
+    color: var(--primary-dark);
+    font-weight: var(--font-medium);
+  }
+  
+  .facility-card p {
+    margin: 0 var(--space-4) var(--space-4);
+    color: var(--primary-light);
+    font-weight: var(--font-thin);
+    font-size: var(--text-sm);
+  }
+  
+  /* 스펙 섹션 (면적, 세대 수 등 상세 스펙) */
+  .project-specs {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-6);
+    margin-bottom: var(--space-16);
+  }
+  
+  .project-specs h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 스펙 그리드 */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+  
+  /* 개별 스펙 아이템 */
+  .spec-item {
+    text-align: center;
+    background-color: var(--bg-off-white);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+  }
+  
+  .spec-item:hover {
+    background-color: rgba(212,175,55,0.1);
+  }
+  
+  .spec-title {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-medium);
+    margin-bottom: var(--space-2);
+  }
+  
+  .spec-value {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--primary-dark);
+  }
+  
+  .spec-unit {
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+    margin-left: var(--space-1);
+  }
+  
+  /* 아파트 유닛 정보 섹션 */
+  .unit-types {
+    margin-bottom: var(--space-16);
+  }
+  
+  .unit-types h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 유닛 타입 테이블 */
+  .unit-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .unit-table th {
+    background-color: var(--primary-medium);
+    color: var(--bg-white);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: var(--font-medium);
+  }
+  
+  .unit-table td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .unit-table tr {
+    background-color: var(--bg-white);
+    transition: background-color var(--transition-normal);
+  }
+  
+  .unit-table tr:hover {
+    background-color: rgba(212,175,55,0.05);
+  }
+  
+  .unit-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* 프로젝트 하이라이트 섹션 */
+  .project-highlights {
+    margin-top: var(--space-12);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+  
+  /* 하이라이트 카드 */
+  .highlight-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* 카드 배경 효과 */
+  .highlight-card:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 5px;
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-light));
+    opacity: 0.5;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .highlight-card:hover:before {
+    opacity: 1;
+  }
+  
+  .highlight-icon {
+    font-size: var(--text-3xl);
+    color: var(--gold);
+    margin-bottom: var(--space-3);
+  }
+  
+  .highlight-title {
+    font-size: var(--text-lg);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-medium);
+  }
+  
+  .highlight-description {
+    color: var(--primary-light);
+    font-weight: var(--font-thin);
+    font-size: var(--text-sm);
+  }
+  
+  /* 프로젝트 CTA */
+  .project-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+  }
+  
+  .project-cta p {
+    color: var(--primary-light);
+    max-width: 600px;
+    margin: 0 auto var(--space-6);
+    font-weight: var(--font-thin);
+    font-size: var(--text-lg);
+  }
+  
+  /* 캐러셀 스타일 */
+  .facilities-carousel {
+    position: relative;
+    margin: 0 -20px;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+  
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-4);
+  }
+  
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-medium);
+    color: var(--bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 var(--space-2);
+    transition: all var(--transition-normal);
+  }
+  
+  .carousel-control:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-4);
+  }
+  
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--gray-light);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .carousel-indicator.active {
+    background-color: var(--gold);
+    transform: scale(1.2);
+  }
+  
+  /* 모바일 반응형 스타일 */
+  @media (max-width: 992px) {
+    .facilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-specs {
+      padding: var(--space-4);
+    }
+    
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-highlights {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .facilities-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .unit-table {
+      font-size: var(--text-sm);
+    }
+    
+    .project-highlights {
+      grid-template-columns: 1fr;
+    }
+    
+    .benchmark-points {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .project-visual-caption {
+      max-width: 90%;
+      font-size: var(--text-xs);
+    }
+  }

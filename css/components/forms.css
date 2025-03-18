@@ -1,0 +1,293 @@
+/* forms.css - 폼 요소 스타일 */
+
+/* 기본 폼 컨테이너 */
+.contact-form-container {
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    max-width: 700px;
+    margin: var(--space-12) auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 양식 자체에 고급스러운 배경 효과 추가 */
+  .contact-form-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0));
+    border-radius: 0 0 0 100%;
+    z-index: 0;
+  }
+  
+  /* 폼 그룹 및 요소 */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: var(--space-4);
+  }
+  
+  .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-4);
+  }
+  
+  /* 레이블 스타일 */
+  label {
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+    font-size: var(--text-sm);
+  }
+  
+  /* 필수 항목 표시 */
+  .required {
+    color: #e74c3c;
+    margin-left: var(--space-1);
+  }
+  
+  /* 입력 필드 기본 스타일 */
+  input,
+  select,
+  textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--charcoal);
+    transition: all var(--transition-normal);
+    background-color: var(--bg-white);
+  }
+  
+  /* 호버 및 포커스 효과 */
+  input:hover,
+  select:hover,
+  textarea:hover {
+    border-color: rgba(212,175,55,0.3);
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
+  }
+  
+  /* 텍스트 영역 */
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  /* 셀렉트 박스 */
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231E3A5F' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-4) center;
+    padding-right: var(--space-8);
+  }
+  
+  /* 체크박스 및 라디오 스타일 */
+  .checkbox-group,
+  .radio-group {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--gold);
+  }
+  
+  /* 개인정보 동의 섹션 */
+  .privacy-consent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin: var(--space-4) 0;
+    padding: var(--space-4);
+    background-color: rgba(0,0,0,0.02);
+    border-radius: var(--radius-md);
+  }
+  
+  .privacy-consent input {
+    margin-top: 3px;
+  }
+  
+  .privacy-details {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    background-color: rgba(0,0,0,0.02);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--gray-dark);
+  }
+  
+  .privacy-details p {
+    margin-bottom: var(--space-1);
+  }
+  
+  /* 투자 설명회 신청 단계 */
+  .contact-steps {
+    position: relative;
+  }
+  
+  .step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+    position: relative;
+  }
+  
+  .step-indicator:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: var(--gray-light);
+    z-index: 0;
+  }
+  
+  .step {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--bg-white);
+    border: 1px solid var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xs);
+    color: var(--gray-medium);
+    transition: all var(--transition-normal);
+  }
+  
+  .step.active {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg-white);
+  }
+  
+  /* 제출 버튼 컨테이너 */
+  .form-submit-container {
+    margin-top: var(--space-6);
+    text-align: center;
+  }
+  
+  /* 폼 노트 (작은 텍스트) */
+  .form-note {
+    font-size: var(--text-xs);
+    color: var(--gray-medium);
+    text-align: center;
+    margin-top: var(--space-3);
+  }
+  
+  /* 입력 검증 피드백 */
+  .form-feedback {
+    font-size: var(--text-xs);
+    margin-top: var(--space-1);
+  }
+  
+  .form-feedback.error {
+    color: #e74c3c;
+  }
+  
+  .form-feedback.success {
+    color: #2ecc71;
+  }
+  
+  /* 로딩 상태 */
+  .loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(212,175,55,0.3);
+    border-radius: 50%;
+    border-top-color: var(--gold);
+    animation: spin 1s ease-in-out infinite;
+    margin-right: var(--space-2);
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* 문의 정보 그리드 */
+  .contact-info {
+    margin-top: var(--space-12);
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  
+  .info-icon {
+    font-size: var(--text-2xl);
+    color: var(--gold);
+  }
+  
+  .info-content h4 {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+    color: var(--primary-dark);
+  }
+  
+  .info-content p {
+    color: var(--primary-light);
+    font-weight: var(--font-thin);
+  }
+  
+  /* 모바일 반응형 스타일 */
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .contact-form-container {
+      padding: var(--space-6) var(--space-4);
+    }
+    
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }

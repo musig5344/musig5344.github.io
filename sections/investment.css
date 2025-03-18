@@ -1,0 +1,910 @@
+/* investment.css - 고급 투자 하이라이트 섹션 스타일 */
+
+/* 투자 섹션 기본 스타일 */
+.section-investment {
+    position: relative;
+    background-color: var(--bg-white);
+    overflow: hidden;
+    text-align: center;
+    padding: var(--space-20) 0 var(--space-16);
+  }
+  
+  /* 배경 패턴 (고급스러운 느낌 강화) */
+  .section-investment:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* 섹션 타이틀 */
+  .section-investment .section-title {
+    font-family: var(--font-serif);
+    text-align: center;
+    margin-bottom: var(--space-2);
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--primary-darkest);
+    letter-spacing: -0.02em;
+  }
+  
+  .section-investment .section-subtitle {
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: var(--space-8);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-2);
+  }
+  
+  /* 투자 카드 컨테이너 */
+  .investment-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin: var(--space-12) auto;
+    max-width: 1200px;
+  }
+  
+  /* 투자 카드 스타일 */
+  .investment-card {
+    flex: 1 1 300px;
+    max-width: 350px;
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    z-index: var(--z-normal);
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* 카드 상단 색상 바 (브랜드 아이덴티티 강화) */
+  .investment-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+    z-index: var(--z-normal);
+  }
+  
+  /* 마우스 오버 시 효과 (상호작용 유도) */
+  .investment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* 카드 헤더 */
+  .card-header {
+    padding: var(--space-6) var(--space-6) var(--space-4);
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .card-header h3 {
+    font-size: var(--text-xl);
+    color: var(--primary-dark);
+    font-weight: var(--font-medium);
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  /* 카드 콘텐츠 */
+  .card-content {
+    padding: var(--space-6);
+    text-align: center;
+  }
+  
+  /* 핵심 수치 강조 (투자 결정의 핵심 데이터) */
+  .card-value {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-bold);
+    background: linear-gradient(to right, var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: var(--space-4) 0;
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    
+    /* 입체감을 주는 텍스트 그림자 (가치 인식 강화) */
+    text-shadow: 0 2px 2px rgba(0,0,0,0.05);
+    
+    /* 수치가 증가하는 애니메이션 효과 */
+    animation: countUp 2s ease-out forwards;
+  }
+  
+  /* 수치 증가 애니메이션 (주목도 향상) */
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card-description {
+    color: var(--primary-light);
+    font-size: var(--text-base);
+    font-weight: var(--font-thin);
+    text-align: center;
+  }
+  
+  /* 투자 지연 시 기회비용 표시 (손실회피 심리 자극) */
+  .opportunity-cost {
+    background-color: var(--primary-darkest);
+    color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    margin: var(--space-12) auto;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    text-align: center;
+  }
+  
+  .opportunity-cost:before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+    transform: rotate(-30deg);
+    pointer-events: none;
+  }
+  
+  .opportunity-cost h3 {
+    color: var(--bg-white);
+    text-align: center;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-2xl);
+  }
+  
+  .highlight {
+    font-size: var(--text-xl);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+  
+  .accent {
+    color: var(--gold);
+    font-weight: var(--font-medium);
+  }
+  
+  /* 투자 지연 비용 게이지 (시각적 임팩트 강화) */
+  .cost-meter {
+    background-color: rgba(255,255,255,0.1);
+    height: 40px;
+    border-radius: var(--radius-md);
+    margin-top: var(--space-4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .meter-fill {
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-dark));
+    height: 100%;
+    width: 0;
+    border-radius: var(--radius-md);
+    animation: fillMeter 1.5s ease-out forwards;
+  }
+  
+  @keyframes fillMeter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .meter-value {
+    position: absolute;
+    top: 50%;
+    right: var(--space-4);
+    transform: translateY(-50%);
+    color: var(--bg-white);
+    font-weight: var(--font-medium);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    z-index: var(--z-normal);
+  }
+  
+  /* 수익률 비교 차트 컨테이너 */
+  .comparison-container {
+    max-width: 900px;
+    margin: var(--space-12) auto;
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+  
+  .chart-title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+  }
+  
+  .chart-subtitle {
+    text-align: center;
+    color: var(--primary-light);
+    font-size: var(--text-lg);
+    font-weight: var(--font-thin);
+    margin-bottom: var(--space-8);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* 비교 차트 스타일 (경쟁 투자 대비 우위 시각화) */
+  .comparison-chart {
+    width: 100%;
+    margin-top: var(--space-6);
+  }
+  
+  .chart-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-5);
+  }
+  
+  .chart-label {
+    flex: 0 0 200px;
+    font-weight: var(--font-normal);
+    font-size: var(--text-base);
+    color: var(--primary-dark);
+    text-align: right;
+    padding-right: var(--space-4);
+  }
+  
+  .chart-track {
+    flex: 1;
+    height: 35px;
+    background-color: rgba(0,0,0,0.03);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  }
+  
+  /* 차트 채우기 애니메이션 (점진적 데이터 공개로 주목도 향상) */
+  .chart-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-light), var(--primary-medium));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: var(--space-4);
+    color: var(--bg-white);
+    font-weight: var(--font-medium);
+    font-size: var(--text-sm);
+    width: 0%; /* 초기 너비, 애니메이션에서 변경됨 */
+    transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    overflow: visible; /* 텍스트가 밖으로 나갈 수 있게 */
+  }
+  
+  /* 퍼센트가 낮을 때 텍스트 위치 조정 */
+  .chart-fill[data-percentage="1"]:after,
+  .chart-fill[data-percentage="3"]:after,
+  .chart-fill[data-percentage="3.5"]:after {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    right: -35px;
+    color: var(--primary-dark);
+  }
+  
+  /* 차트 금색 강조 (차별화 포인트) */
+  .chart-fill.gold {
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-dark));
+    color: var(--bg-white);
+  }
+  
+  @keyframes fillWidth {
+    from {
+      width: 0;
+    }
+    to {
+      width: var(--fill-width, 100%);
+    }
+  }
+  
+  /* 차트 설명 노트 */
+  .chart-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--primary-medium);
+    margin-top: var(--space-6);
+  }
+  
+  .gold-text {
+    color: var(--gold);
+    font-weight: var(--font-medium);
+    display: inline-block;
+  }
+  
+  /* 누적 수익 시뮬레이션 섹션 */
+  .cumulative-returns {
+    margin: var(--space-16) auto;
+    text-align: center;
+    max-width: 1000px;
+    background-color: var(--bg-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .cumulative-returns h3 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--primary-dark);
+  }
+  
+  /* 투자 금액 탭 */
+  .investment-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+  }
+  
+  .tab-btn {
+    padding: var(--space-3) var(--space-5);
+    background-color: var(--bg-off-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .tab-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--bg-white);
+  }
+  
+  .tab-btn.active {
+    background-color: var(--primary-medium);
+    color: var(--bg-white);
+  }
+  
+  /* 차트 컨테이너 */
+  .cumulative-chart-container {
+    display: flex;
+    height: 300px;
+    margin: var(--space-8) auto;
+    max-width: 900px;
+  }
+  
+  /* Y축 레이블 */
+  .y-axis-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 120px;
+    padding-right: var(--space-3);
+    text-align: right;
+  }
+  
+  .y-label {
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+  }
+  
+  /* 차트 내용 */
+  .chart-content {
+    flex: 1;
+    border-left: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 20%,
+      rgba(0,0,0,0.03) 20%,
+      rgba(0,0,0,0.03) 40%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0,0,0,0.03) 60%,
+      rgba(0,0,0,0.03) 80%,
+      transparent 80%,
+      transparent 100%
+    );
+  }
+  
+  /* 막대 컨테이너 */
+  .bars-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+    padding: 0 var(--space-4);
+  }
+  
+  /* 연차별 막대 */
+  .year-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40px;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* 원금 부분 */
+  .principal-segment {
+    width: 100%;
+    background-color: var(--primary-dark);
+    margin-bottom: 0;
+    transition: height 1s ease;
+  }
+  
+  /* 이자 부분 */
+  .interest-segment {
+    width: 100%;
+    background-color: var(--gold);
+    margin-bottom: 0;
+    transition: height 1s ease;
+  }
+  
+  /* 연도 레이블 */
+  .year-label {
+    position: absolute;
+    bottom: -25px;
+    font-size: var(--text-xs);
+    color: var(--primary-light);
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* 범례 */
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin: var(--space-8) 0 var(--space-4);
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+  }
+  
+  .legend-color.principal {
+    background-color: var(--primary-dark);
+  }
+  
+  .legend-color.interest {
+    background-color: var(--gold);
+  }
+  
+  .legend-text {
+    font-size: var(--text-sm);
+    color: var(--charcoal);
+  }
+  
+  /* 총 수익 정보 */
+  .total-returns {
+    background-color: var(--bg-off-white);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .total-returns p {
+    margin: var(--space-1) 0;
+    font-size: var(--text-base);
+    text-align: center;
+  }
+  
+  .total-returns .accent {
+    color: var(--gold);
+    font-weight: var(--font-bold);
+  }
+  
+  /* 차트 플레이스홀더 */
+  .chart-placeholder {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-off-white);
+    border-radius: var(--radius-md);
+    color: var(--primary-light);
+    font-style: italic;
+  }
+  
+  /* CTA 컨테이너 */
+  .cta-container {
+    text-align: center;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-16);
+  }
+  
+  /* 메인 CTA 버튼 */
+  .btn-cta-primary {
+    display: inline-block;
+    padding: var(--space-4) var(--space-10);
+    background: linear-gradient(to right, var(--gold), var(--gold-dark));
+    color: var(--bg-white);
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: var(--shadow-lg), 0 5px 15px rgba(212,175,55,0.3);
+    transition: all var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: var(--z-normal);
+  }
+  
+  /* CTA 버튼 호버 효과 */
+  .btn-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl), 0 8px 25px rgba(212,175,55,0.4);
+  }
+  
+  /* CTA 버튼 활성화 효과 */
+  .btn-cta-primary:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-md), 0 3px 10px rgba(212,175,55,0.3);
+  }
+  
+  /* CTA 버튼 물결 효과 */
+  .btn-cta-primary:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+  }
+  
+  .btn-cta-primary:hover:after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* 보조 CTA 버튼 (투자 상담 예약 등) */
+  .btn-cta-secondary {
+    display: inline-block;
+    padding: var(--space-3) var(--space-8);
+    background-color: transparent;
+    color: var(--primary-dark);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    margin-top: var(--space-6);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+  }
+  
+  .btn-cta-secondary:hover {
+    background-color: var(--bg-off-white);
+    border-color: var(--primary-medium);
+  }
+  
+  /* 무료 상담 CTA */
+  .consultation-cta {
+    background-color: var(--bg-off-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    margin: var(--space-16) auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .consultation-cta h3 {
+    font-size: var(--text-xl);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-3);
+  }
+  
+  .consultation-desc {
+    margin-bottom: var(--space-6);
+    color: var(--primary-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* 투자 유의사항 */
+  .disclaimer {
+    max-width: 900px;
+    margin: var(--space-16) auto var(--space-8);
+    padding: var(--space-6);
+    border-top: 1px solid var(--gray-light);
+    text-align: center;
+  }
+  
+  .disclaimer-title {
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-4);
+  }
+  
+  .disclaimer-text {
+    font-size: var(--text-sm);
+    color: var(--primary-light);
+    line-height: 1.6;
+  }
+  
+  /* 투자 혜택 및 특전 섹션 */
+  .benefits-section {
+    margin: var(--space-16) auto;
+    text-align: center;
+    max-width: 1000px;
+  }
+  
+  .benefits-title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  
+  .benefit-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    text-align: left;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .benefit-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--space-3);
+    color: var(--gold);
+  }
+  
+  .benefit-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-2);
+  }
+  
+  .benefit-desc {
+    color: var(--primary-light);
+    font-size: var(--text-base);
+  }
+  
+  /* 신뢰 요소 섹션 */
+  .trust-section {
+    background-color: var(--bg-off-white);
+    padding: var(--space-12) 0;
+    margin: var(--space-16) 0;
+  }
+  
+  .trust-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .trust-title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-6);
+  }
+  
+  .trust-item {
+    padding: var(--space-4);
+  }
+  
+  .trust-icon {
+    font-size: var(--text-4xl);
+    color: var(--primary-medium);
+    margin-bottom: var(--space-3);
+  }
+  
+  .trust-item-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-2);
+  }
+  
+  .trust-item-desc {
+    color: var(--primary-light);
+    font-size: var(--text-sm);
+  }
+  
+  /* 투자 프로세스 섹션 */
+  .process-section {
+    margin: var(--space-16) auto;
+    max-width: 1000px;
+    text-align: center;
+  }
+  
+  .process-title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--primary-dark);
+  }
+  
+  .process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    margin-top: var(--space-8);
+  }
+  
+  /* 연결선 */
+  .process-steps:before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: calc(10% + 20px);
+    right: calc(10% + 20px);
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-light));
+    z-index: var(--z-below);
+  }
+  
+  .process-step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    padding: var(--space-4);
+    position: relative;
+    z-index: var(--z-normal);
+  }
+  
+  .step-number {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: var(--bg-white);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    border-radius: 50%;
+    margin: 0 auto var(--space-4);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .step-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-2);
+  }
+  
+  .step-desc {
+    color: var(--primary-light);
+    font-size: var(--text-sm);
+  }
+  
+  /* 미디어 쿼리 - 반응형 대응 */
+  @media (max-width: 768px) {
+    .investment-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .investment-card {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .chart-label {
+      flex: 0 0 120px;
+    }
+    
+    .process-steps:before {
+      display: none;
+    }
+    
+    .process-step {
+      margin-bottom: var(--space-6);
+    }
+    
+    .investment-tabs {
+      flex-wrap: wrap;
+    }
+    
+    .cumulative-chart-container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .y-axis-labels {
+      width: 100%;
+      flex-direction: row;
+      padding-right: 0;
+      padding-bottom: var(--space-2);
+      text-align: center;
+    }
+    
+    .chart-content {
+      border-left: none;
+      border-top: 1px solid var(--gray-light);
+      min-height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-value {
+      font-size: var(--text-4xl);
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      font-size: var(--text-xl);
+    }
+    
+    .chart-label {
+      flex: 0 0 100px;
+      font-size: var(--text-xs);
+    }
+  }
